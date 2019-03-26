@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Home</title>
+    <link rel='stylesheet' href='/css/style.css' />
+    <link rel="stylesheet" href="/font/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  </head>
+  <body >
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Highlight Pictures</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/auth/signin/" class="login">Login</a></li>
+            <li><a href="javascript:void(0);" class="logout">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="container">
+      <div id="map">	    
+		  </div>
+
+      <div id="map_address">
+        <input id="address" type="textbox" value="Phnom Penh, Cambodia">
+        <input type="button" value="Go" onclick="enterAddress()">
+      </div>
+
+      <div id="rating_stars">
+        <h4>User Rating <p>{{user.email}}</p></h4>
+        <div id="stars">
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star-half-empty"></i>
+          <i class="fa fa-star-o"></i>
+          <i class="fa fa-star-o"></i>
+          <i class="fa fa-star-o"></i>
+          <i class="fa fa-star-o"></i>
+          <i class="fa fa-star-o"></i>
+          <i class="fa fa-star-o"></i>
+        </div>
+      </div>
+
+      <div id="upload_part">
+        <form id='uploadForm' action='/' method='post' enctype="multipart/form-data">
+          <h4>Upload Image</h4>
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" id="imageFile" name="imageFile">
+            <label class="custom-file-label" for="imageFile">Choose file</label>
+          </div>
+          <label>Lat: </label>
+          <input type="text" id="latitude" name="latitude" >
+          <br/>
+          <label>Lng: </label>
+          <input type="text" id="longitude" name="longitude" >
+          <button type="submit" class="btn btn-primary">Upload</button>
+        </form>  
+      </div>
+
+      <div id="view_part" class="hide">
+        <div> 
+          <h4>View Image</h4>
+          <div class="thump" style='float:right; font-size: 19px'>
+          </div>
+        </div>
+        <img id='location_image'>
+      </div>
+    <div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="/js/map.js"></script>
+    <script src="/js/share.js"></script>
+    <script src="/js/index.js"></script>
+    <script async defer
+    	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzGgWAn4zQ7n8sHhAQ_32rUxaODZc6iic&callback=initMap">
+		</script>
+    <script>
+        initUI();
+        viewUploadResult('{{result.message}}');
+        drawUserRating({{user.rating}});
+    </script>
+  </body>
+</html>

@@ -1,0 +1,89 @@
+body {
+  padding: 70px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.container {
+  top:100px;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/**********************
+index page
+***********************/
+#map {
+  height: 100%;
+  position: initial !important;
+  overflow: auto !important;
+}
+/* Optional: Makes the sample page fill the window. */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#map_address {
+  position: absolute;
+  z-index: 5;
+  top:100px;
+  left:25%;
+}
+
+#rating_stars {
+  padding:5px;
+  text-align: right;
+  position: absolute;
+  z-index: 5;
+  top:100px;
+  background: gray; 
+  right: 2%;
+}
+
+.fa-star {
+  color: yellow;
+}
+
+.fa-star-half-empty {
+  color: yellow;
+}
+
+.fa-star-o {
+  color: white;
+}
+
+.fa-thumbs-down {
+  color: white;
+}
+
+.fa-thumbs-up {
+  color: white;
+}
+
+#upload_part { 
+  position: absolute;
+  z-index: 5; 
+  top:100px; 
+  left:1%; 
+  background: gray; 
+  width: 300px; 
+  height: 200px; 
+  padding:10px 10px 10px 10px;
+}
+
+#view_part {
+  position: absolute;
+  z-index: 5; 
+  top:350px; 
+  left:1%; 
+  background: gray; 
+  width: 300px; 
+  padding:10px 10px 10px 10px;
+}
+
+#location_image {
+  width:280px;
+}
